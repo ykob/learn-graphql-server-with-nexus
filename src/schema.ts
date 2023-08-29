@@ -1,5 +1,9 @@
 import { makeSchema } from "nexus";
-import { join } from "path";
+import { dirname, join } from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 export const schema = makeSchema({
   types: [],

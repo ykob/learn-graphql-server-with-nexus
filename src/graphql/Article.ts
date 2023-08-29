@@ -1,17 +1,17 @@
-import { objectType, extendType } from "nexus";
+import { extendType, list, nonNull, objectType } from "nexus";
 
-export const Post = objectType({
-  name: "Post",
+export const Article = objectType({
+  name: "Article",
   definition(t) {
     t.int("id"), t.string("title"), t.string("body"), t.boolean("published");
   },
 });
 
-export const PostQuery = extendType({
+export const ArticleQuery = extendType({
   type: "Query",
   definition(t) {
-    t.nonNull.list.field("drafts", {
-      type: "Post",
+    t.field("drafts", {
+      type: nonNull(list("Article")),
       resolve() {
         return [{ id: 1, title: "Nexus", body: "...", published: false }];
       },

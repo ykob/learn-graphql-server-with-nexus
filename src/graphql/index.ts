@@ -1,1 +1,1 @@
-export * from "./Post.ts";
+export * from "./Article.ts";

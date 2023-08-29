@@ -2,11 +2,10 @@
   "name": "learn-graphql-server-with-nexus",
   "version": "1.0.0",
   "description": "## Environment",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node-dev --transpile-only --no-notify src/index.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "start": "npm run build && node ./dist/index.js"
   },
   "keywords": [],
   "author": "",

@@ -1,1 +1,5 @@
+dist
 node_modules
+nexus-typegen.ts
+schema.graphql
+yarn-error.log

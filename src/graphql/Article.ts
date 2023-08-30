@@ -1,5 +1,4 @@
 import { extendType, list, nonNull, objectType } from "nexus";
-import { context } from "../context.ts";
 
 export const Article = objectType({
   name: "Article",
@@ -13,7 +12,7 @@ export const ArticleQuery = extendType({
   definition(t) {
     t.field("drafts", {
       type: nonNull(list("Article")),
-      resolve() {
+      resolve(_root, _args, context) {
         return context.dataBase.articles.filter(
           (article) => !article.published
         );

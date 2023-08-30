@@ -5,8 +5,8 @@
     "lib": [
       "es2021"
     ],
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "noEmit": true,
     "outDir": "dist",
     "rootDirs": [

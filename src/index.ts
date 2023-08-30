@@ -1,6 +1,6 @@
 import { startStandaloneServer } from "@apollo/server/standalone";
-import { context } from "./context.ts";
-import { server } from "./server.ts";
+import { context } from "./context.js";
+import { server } from "./server.js";
 
 const { url } = await startStandaloneServer(server, {
   listen: { port: 4000 },

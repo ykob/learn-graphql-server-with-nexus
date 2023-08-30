@@ -1,4 +1,4 @@
-import { dataBase, DataBase } from "./database";
+import { dataBase, DataBase } from "./database.ts";
 
 export interface Context {
   dataBase: DataBase;

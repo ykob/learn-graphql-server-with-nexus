@@ -9,7 +9,7 @@
     "dev": "nodemon"
   },
   "keywords": [],
-  "author": "",
+  "author": "Yoichi Kobayashi",
   "license": "ISC",
   "dependencies": {
     "@apollo/server": "^4.9.2",

@@ -1,4 +1,11 @@
-import { extendType, list, nonNull, objectType, stringArg } from "nexus";
+import {
+  extendType,
+  intArg,
+  list,
+  nonNull,
+  objectType,
+  stringArg,
+} from "nexus";
 
 export const Article = objectType({
   name: "Article",
@@ -10,10 +17,21 @@ export const Article = objectType({
 export const ArticleQuery = extendType({
   type: "Query",
   definition(t) {
-    t.field("drafts", {
+    t.field("draftArticles", {
       type: nonNull(list("Article")),
       resolve(_root, _args, ctx) {
-        return ctx.dataBase.articles.filter((article) => !article.published);
+        return ctx.dataBase.articles.filter(
+          (article) => article.published === false
+        );
+      },
+    });
+
+    t.field("publishedArticles", {
+      type: list("Article"),
+      resolve(_root, _args, ctx) {
+        return ctx.dataBase.articles.filter(
+          (article) => article.published === true
+        );
       },
     });
   },
@@ -37,6 +55,24 @@ export const ArticleMutation = extendType({
         };
         ctx.dataBase.articles.push(draft);
         return draft;
+      },
+    });
+
+    t.field("publish", {
+      type: "Article",
+      args: {
+        draftId: nonNull(intArg()),
+      },
+      resolve(_root, args, ctx) {
+        let draftToPublish = ctx.dataBase.articles.find(
+          (a) => a.id === args.draftId
+        );
+
+        if (!draftToPublish) {
+          throw new Error(`Could not find draft with id ${args.draftId}`);
+        }
+        draftToPublish.published = true;
+        return draftToPublish;
       },
     });
   },

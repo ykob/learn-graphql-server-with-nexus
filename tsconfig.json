@@ -12,7 +12,8 @@
     ],
     "target": "es2021",
     "types": [
-      "node"
+      "node",
+      "@types/nexus-typegen"
     ]
   },
   "ts-node": {

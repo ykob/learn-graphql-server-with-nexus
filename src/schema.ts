@@ -9,7 +9,14 @@ const __dirname = dirname(__filename);
 export const schema = makeSchema({
   types,
   outputs: {
-    typegen: join(__dirname, "..", "dist", "nexus-typegen.ts"),
+    typegen: join(
+      __dirname,
+      "..",
+      "node_modules",
+      "@types",
+      "nexus-typegen",
+      "index.d.ts"
+    ),
     schema: join(__dirname, "..", "dist", "schema.graphql"),
   },
   contextType: {

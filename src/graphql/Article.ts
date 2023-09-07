@@ -10,7 +10,10 @@ import {
 export const Article = objectType({
   name: "Article",
   definition(t) {
-    t.int("id"), t.string("title"), t.string("body"), t.boolean("published");
+    t.nonNull.int("id"),
+      t.nonNull.string("title"),
+      t.string("body"),
+      t.nonNull.boolean("published");
   },
 });
 

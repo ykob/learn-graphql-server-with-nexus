@@ -4,9 +4,7 @@ import { server } from "./server.js";
 
 const { url } = await startStandaloneServer(server, {
   listen: { port: 4000 },
-  context: async () => ({
-    ...context,
-  }),
+  context: async () => context(),
 });
 
 console.log(`🚀 Server ready at: ${url}`);

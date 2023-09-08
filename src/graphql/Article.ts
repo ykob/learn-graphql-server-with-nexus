@@ -23,7 +23,7 @@ export const ArticleQuery = extendType({
     t.field("draftArticles", {
       type: nonNull(list("Article")),
       resolve(_root, _args, ctx) {
-        return ctx.dataBase.articles.filter(
+        return ctx.database.articles.filter(
           (article) => article.published === false
         );
       },
@@ -32,7 +32,7 @@ export const ArticleQuery = extendType({
     t.field("publishedArticles", {
       type: list("Article"),
       resolve(_root, _args, ctx) {
-        return ctx.dataBase.articles.filter(
+        return ctx.database.articles.filter(
           (article) => article.published === true
         );
       },
@@ -51,12 +51,12 @@ export const ArticleMutation = extendType({
       },
       resolve(_root, args, ctx) {
         const draft = {
-          id: ctx.dataBase.articles.length + 1,
+          id: ctx.database.articles.length + 1,
           title: args.title,
           body: args.body,
           published: false,
         };
-        ctx.dataBase.articles.push(draft);
+        ctx.database.articles.push(draft);
         return draft;
       },
     });
@@ -67,7 +67,7 @@ export const ArticleMutation = extendType({
         draftId: nonNull(intArg()),
       },
       resolve(_root, args, ctx) {
-        let draftToPublish = ctx.dataBase.articles.find(
+        let draftToPublish = ctx.database.articles.find(
           (a) => a.id === args.draftId
         );
 

@@ -5,11 +5,11 @@ export interface Article {
   published: boolean;
 }
 
-export interface DataBase {
+export interface Database {
   articles: Article[];
 }
 
-export const dataBase: DataBase = {
+export const database: Database = {
   articles: [
     {
       id: 1,

@@ -1,9 +1,9 @@
-import { dataBase, DataBase } from "./database.js";
+import { database, Database } from "./database.js";
 
 export interface Context {
-  dataBase: DataBase;
+  database: Database;
 }
 
 export const context: Context = {
-  dataBase,
+  database,
 };

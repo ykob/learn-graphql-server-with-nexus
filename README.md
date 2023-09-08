@@ -12,6 +12,10 @@
 - [ts-node](https://github.com/TypeStrong/ts-node): TypeScript ベースの Node.js 実行エンジン
 - [Nodemon](https://github.com/remy/nodemon): 自動的にコード変更を検知しサーバを再起動するツール
 
+### Rest API using as datasource
+
+- [SpaceX-API](https://github.com/r-spacex/SpaceX-API/)
+
 ## References
 
 - [Tutorial - GraphQL Nexus](https://nexusjs.org/docs/getting-started/tutorial)

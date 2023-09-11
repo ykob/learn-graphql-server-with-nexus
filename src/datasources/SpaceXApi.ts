@@ -23,4 +23,8 @@ export class SpaceXApi extends RESTDataSource {
   ships(): Promise<Ship[]> {
     return this.get("ships");
   }
+
+  ship(id: string): Promise<Ship> {
+    return this.get(`ships/${encodeURIComponent(id)}`);
+  }
 }

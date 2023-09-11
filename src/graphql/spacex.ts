@@ -57,5 +57,20 @@ export const RocketsQuery = extendType({
         }));
       },
     });
+
+    t.field("ship", {
+      type: nonNull("Ship"),
+      args: {
+        id: nonNull(stringArg()),
+      },
+      async resolve(_root, args, ctx) {
+        const { id, name } = await ctx.dataSources.spaceXApi.ship(args.id);
+
+        return {
+          id,
+          name,
+        };
+      },
+    });
   },
 });
